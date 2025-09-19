@@ -17,23 +17,22 @@ public class BankTransactionsPage {
     private static final BaseElement chooseBankAccount = new BaseElement(By.xpath("//a[contains(@title, 'TBC')][1]"), "bank account");
     private static final TextElement commission = new TextElement(By.xpath("//button/span[not(@class)]"), "Commission");
 
-    // 1. Click dropdown
+
     public static void clickBankSelect() {
         bankSelectElement.click();
     }
 
-    // 2. Choose bank
+
     public static void clickBankChoice() {
         bankChoice.click();
     }
 
-    // 3. Fill input
     public static void fillServiceInput(String value) {
         waitForVisibility(serviceInput.getLocator());
         serviceInput.fill(value);
     }
 
-    // 4. Click check button
+
     public static void clickCheckButton() {
         checkButton.click();
     }

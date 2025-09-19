@@ -16,15 +16,15 @@ public class TransactionsDataProvider {
     public Object[][] provideTransactionData() {
         return new Object[][]{
 //                 amount,    id,             expectedAmount, expectedButtonEnabled, continueFlow
-//                {"abc",      null,           "",    false, false},       // letters in amount → ignored
-//                {"",      null,           "",    false, false},
-//                {belowMinAmount,     defaultId,  minAmount,   true, false},       // less than 1 → capped to 1
-//                {overMaxAmount,     defaultId,  maxAmount, true,  false},      // capped to 1500
-//                {correctAmount,      "abcdefghijk",  correctAmount, false, false},       // letters ignored → empty ID
-//                {correctAmount,      "12345",        correctAmount, false, false},       // too short
-//                {correctAmount,      defaultId, correctAmount, true,  false},        // capped at 11 → valid
-//                {correctAmount,      "",  correctAmount, false,  false},
-                {correctAmount,      defaultId,  correctAmount, true,  true},        // perfect case
+                {"abc",              null,           "",            false, false},
+                {"",                 null,           "",            false, false},
+                {belowMinAmount,     defaultId,      minAmount,     true, false},
+                {overMaxAmount,      defaultId,      maxAmount,     true,  false},
+                {correctAmount,      "abcdefghijk",  correctAmount, false, false},
+                {correctAmount,      "12345",        correctAmount, false, false},
+                {correctAmount,      defaultId,      correctAmount, true,  false},
+                {correctAmount,      "",             correctAmount, false,  false},
+                {correctAmount,      defaultId,      correctAmount, true,  true},
         };
     }
 

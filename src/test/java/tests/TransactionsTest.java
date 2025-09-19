@@ -12,24 +12,14 @@ public class TransactionsTest extends BaseTest {
     @Test(dataProvider = "transactionTestData", dataProviderClass = TransactionsDataProvider.class)
     public void testTransactionInputValidations(
             String amount, String id, String expectedAmount,
-            boolean expectedButtonEnabled, boolean continueFlow) throws InterruptedException {
+            boolean expectedButtonEnabled, boolean continueFlow) {
 
-
-        // Fill amount
         TransactionsPage.fillAmountInput(amount);
-
-        // Assert amount field value
         Assert.assertEquals(TransactionsPage.getAmountValue(), expectedAmount, "Amount mismatch!");
-
-        // Only try ID if amount was valid enough to render it
         if (id != null && Integer.parseInt(TransactionsPage.getAmountValue()) >= 1) {
             TransactionsPage.filledInput(id);
         }
-
-        // Check button state
         Assert.assertEquals(TransactionsPage.isTransferButtonEnabled(), expectedButtonEnabled);
-
-        // If valid, continue full flow
         if (continueFlow && expectedButtonEnabled) {
             TransactionsPage.clickTransfer();
             BankTransactionsPage.clickBankSelect();

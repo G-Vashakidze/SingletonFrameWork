@@ -15,7 +15,7 @@ public class PropertyLoader {
             if (input == null) {
                 throw new RuntimeException("Could not find " + CONFIG_FILE + " on classpath");
             }
-            // ✅ Load with UTF-8
+
             try (InputStreamReader reader = new InputStreamReader(input, StandardCharsets.UTF_8)) {
                 properties.load(reader);
             }
